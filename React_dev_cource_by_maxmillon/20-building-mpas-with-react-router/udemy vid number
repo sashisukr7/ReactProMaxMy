@@ -1,0 +1,194 @@
+drag and drop to other repo,paste in docx before doing,
+slide see
+remember syntax,reusable syntax and related with higher syntax.
+199 9 22 
+js hacked https://www.youtube.com/watch?v=hOtZhNb4TKg
+api key can be seen in browser but if publicly access then no problem else you you can restrict from 
+from the firebase
+200 1 15 
+validation in the browser for user experience but js can be manipulated in browser source main.js,etc
+so we should also have validation on server side
+204 5 0
+derive state as comonent re-evaluate  on state  change,at last reset state with initial state
+205 6 0 
+209 2 0 8 45
+pass pointer and create above component so that it will not re-evaluate  on update.
+sss on submit browser send request to server and page refresh ,so event.preventDefault()(not event.stopPropagation())
+sss formik is good for form.
+sss in const [eState, dispatch]=useReducer(moreimortantEReduceisarrowFunction(state,action),intialstateIsOBbject)
+estate.value,..action.type
+dispatch({type:"ss",val:"s"})
+
+
+215 2 53 8 10
+useEffect can not be asyncronous because it returns cleanup function that should be synchronous4.
+sss take const and setState at last to prevent from unnessasary Re-evaluation
+217 3 33 5 08 6 31
+catch block get error in error parameter in form of object so error.message
+sss try and catch block not work in async function beacuse fetch function return promise ,in fetch
+if error come it will reject because it is promise.else we can also use traditional .catch
+or we await but function need to async but useEffect does not allow.so we can also make 2 seprate function
+sss hard code to create error
+221 4 30
+send object and take in 1 parameter only
+222 5 30
+
+
+226 0 18 4 30
+227 2 00
+deply nested jsx when used in enterprise level project so react context has disadvantage.If used
+all in 1 context provider then it became large context provider component.not good for performance if data changes very offen or in high frequency state changes
+complex setup management
+228 2 40
+mutate(changes),Reducer function is general concept which reduces into some output,lice sum of a number,
+useReducer hooks and redux reducer uses same concept.
+component dispach action,which describe what should be done,but don't do it directly,.The action is forwarded to reducer,
+then reducer then does what the action wants,.And then the reducer, spits out a new state,which effectively will replace the existing state in
+central data store .the component which subscribe get notified so that get update the ui.
+Node js allow to run js outside the browser.helps in npx ,also installing npm packages,and also runing our development server
+npm init -y (take default yes)
+229 9 0
+latest state can be console each time
+node file.js to run a file in integrated terminal
+counterSubscriber will run only after dispach action 
+in redux type is identifier must be unique,
+without react redux is working,.can be used in any js project
+233 1 11
+we use provider(which store) so that we can dispatch action from our component,now they can access strore properties and function
+.
+234 4 35
+react unsubscribe automatically when component remove from the dom.
+
+235 1 40
+usereducer syntax,useDispatch syntax,useSelector syntax,
+then after take in constant,so we do not need usestate type variable.
+then after dispatch an object
+
+236 3 0 7 56 8 30
+connect is higher order component return a function there we are giving component as parameter.
+mapStateToProps take state as parameter,mapDispactToProps take dispach as parameter.
+both return object,.mapDispactToProps in value take arrow function and dispatch.
+this.props.counter,this.props.increment();one have function.
+reducer do not merge it override existing state
+
+239 2 0
+you shoud never mutate the state in parameter because of primitive array and object(do not do state.counter++),
+instead return {counter:state.counter+1} means that always return brand new object ,never change parameter state
+dont write state in left side,not use ++ or state.push and not assign in other variable directly
+241 0 40
+remove redux packaage and add reductoolkit.Here no need of case,here action.payload (payload word is compulsary,you can send any type of parameter)
+toolkit uses createSlice method .here it uses a package internally imgur changes the state in an immutable way.
+247 summary good
+
+
+rember syntax in video
+(export named camel case creat from "@reduxjs/toolkit" @allsmall/allsmall),create slice takes an object.
+
+250 0 24
+reducer must be pure ,syncronous and sideeffect free ,also for useReducer.
+two ways 2 call api,inside component and by using action creator.
+ina ddition to toolkit we need to install react-redux
+251 8:35  20 10
+we need provider,useDispatch,useSelector comes from react-redux and store is in index.js to in app.js.
+export cons dd= createSlice() for reducer and action,configurestore comes from toolkit and assign to store
+sss existingItem is an object so if we change this it will original object state but it can bedone in simple redux
+252
+when map we need to give key to react,.
+what you need in request parameter should comes from props,api,etc,applicate state.
+255 2 57 8 26
+we can not do const cart=useSelector(
+    cart.counter=cart.counter+ 1;
+    slice method for array to avoid nutation
+    const updatedItem={...cart.}
+    no need to create action creator(pure and synchronous) when do not have async code or code with side effect
+256 4 28
+258 11 13
+define const outside the component so that it will not render on reEvaluation
+259 0 50 3 02 6 34(await who return promise)
+action creator ,having object consting of type and payload
+260
+dispach will not change i useEffect ,.
+To add some useExisting variable or create application variable
+261 4 40
+find fail on undefined so put || fall back
+nullish is like || but only in undefined and null,not in o and false
+in redux toolkit no need any code setup for devtool(time travel(,jump,skip,debug)action,diff,state,trace logic)
+
+
+267
+react houter helps to create multi page application but it is just an illusion
+npm install react-router-dom@5
+import { Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'
+ <BrowserRouter>
+    <App />
+  </BrowserRouter>
+   <Route path="/welcome">
+        <Welcome />
+      </Route>
+      <Route path="/products">
+        <Products />
+      </Route>
+    
+
+269 6 0 
+link allow us to route without page refresh,also not loose state better than anchor tag.
+
+270
+Navlink to give style while page is active
+271
+when there will list and depending upon the click we need to navigate a apage but with its detail we use
+variable routing.product detail page.
+{useParams} from "react-router-dom"
+const params=useParams()
+ <Route path='/products' exact>
+            <Products />
+          </Route>
+          <Route path='/products/:productId'>
+            <ProductDetail />
+          </Route>
+          switch is used to only one route among multiple component .Route reads from top to down.
+          exact is used to say exact match not ibnitial match we can handle this by reordering also
+
+274
+nested routing if that component is match the nested routing will be evaluated
+ <Route path="/welcome/new-user">
+        <p>Welcome, new user!</p>
+      </Route>
+275
+ <Route path='/' exact>
+            <Redirect to='/welcome' />
+          </Route>
+          exact route if match / then redirect to
+
+278 1 42
+in nested routing we can also give variable routing or use params
+it can be used to redender downside or upside of a component on click of something
+279 6 1
+layout around switch 
+in main we have props.children and and at top we have navigation
+282 2 30 
+path="*" means any path 
+283 3 51
+history.push from useHistory to navigate programaticaly because we can not use link because after a certain action we want to triger.
+history.replace() for not allowing user to go back.
+284 7 0
+promt in form but onlick of a add quote should should reset the state of entered text because sumitHander function do one syncronous function for all code but it will do shedule update.
+285 7 30
+history.push on same reEvaluate the component
+URLSearchParams is javascript feature to get query params in forms of key and value
+287 6 0
+match=useRouterMatch to add more dynamic
+match.path in route
+match.url in link
+history.push have pathname and search key which is more readable
+
+location.pathame form useLocation does not have querySEarchParams
+288 code ,usehttp look.compare with fidlis
+289 code and run in browser
+290
+react router 5 used in many project but latest version 6 and 6.4,so need documentation reading or hown to switch from 
+one to other documentaion before start new version,similarly in react table or other npm packages.
+
+in RR 6,swich is not there there is Routes instead of switch
+291
